@@ -21,9 +21,9 @@ export default function ConnectModel() {
       setIsLoading(true)
       const { connector } = await starknetkitConnectModal()
 
-      await connect({ connector })
+      await connect({ connector: connector as any })
     } catch (error) {
-      toast.error('Failed to connect wallet', error)
+      console.log(error)
     } finally {
       setIsLoading(false)
     }
