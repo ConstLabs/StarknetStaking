@@ -93,7 +93,7 @@ export function StakeForm() {
           amount: cairo.uint256(amount),
           reward_address: rewardAddress,
           operational_address: operationalAddress,
-          pool_enabled: poolEnabled,
+          pool_enabled: poolEnabled ? 1 : 0,
           commission: commission * 100,
         }),
       },
