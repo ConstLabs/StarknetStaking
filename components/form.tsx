@@ -28,7 +28,7 @@ export function StakeForm() {
     rewardAddress: account?.address,
     operationalAddress: account?.address,
     commission: 0,
-    poolEnabled: false,
+    poolEnabled: true,
   });
   const {provider} = useProvider();
 
@@ -110,7 +110,7 @@ export function StakeForm() {
   console.log(inputValues, "inputValues");
   return (
     <div className="font-bold p-4 border rounded-lg container mx-auto mt-10">
-      <div className="mb-2 text-2xl text-center">STRK Staking</div>
+      <div className="mb-2 text-2xl text-center">STRK Staking Validator Creation</div>
       <div className="felx flex-col space-y-6">
           <div className="space-y-2">
             <div className="flex items-center space-x-2 text-sm">
@@ -166,7 +166,7 @@ export function StakeForm() {
             </div>
             <div className="relative">
               <Switch
-                checked={inputValues["poolEnabled"] || false}
+                checked={inputValues["poolEnabled"] || true}
                 onCheckedChange={(checked) => handleChange({ target: { name: "poolEnabled", value: checked } })}
               
               />
@@ -177,7 +177,7 @@ export function StakeForm() {
               <Label>Commission({inputValues["commission"] || 0}%)</Label>
             </div>
             <div className="relative">
-            <Slider value={[inputValues["commission"] || 0]} max={100} step={1} onValueChange={(value) => 
+            <Slider value={[inputValues["commission"] || 0]} max={100} step={0.1} onValueChange={(value) => 
               {
               handleChange({ target: { name: "commission", value: value[0] } })
               }
