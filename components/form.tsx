@@ -90,9 +90,9 @@ export function StakeForm() {
         contractAddress: globalConfig.StakingContract,
         entrypoint: 'stake',
         calldata: CallData.compile({
-          amount: cairo.uint256(amount),
           reward_address: rewardAddress,
           operational_address: operationalAddress,
+          amount: amount,
           pool_enabled: poolEnabled ? 1 : 0,
           commission: commission * 100,
         }),
